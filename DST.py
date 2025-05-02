@@ -144,7 +144,7 @@ image_mode = st.radio("Select image type to view:", ['DGP', 'UDI', 'Floor'], hor
 
 image_dirs = {
     'DGP': r"D:\01_Tu delft Msc Building Tech\2nd year\core\Week 2\VS\renders\dgp",
-    'UDI': "UDI",
+    'UDI': "UDI/UDI",
     'Floor': r"D:\01_Tu delft Msc Building Tech\2nd year\core\Week 2\VS\renders\floor",
 }
 img_column_map = {
