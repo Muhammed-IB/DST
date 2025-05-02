@@ -143,7 +143,7 @@ st.subheader("🖼️ Design Images")
 image_mode = st.radio("Select image type to view:", ['DGP', 'UDI', 'Floor'], horizontal=True)
 
 image_dirs = {
-    'DGP': r"D:\01_Tu delft Msc Building Tech\2nd year\core\Week 2\VS\renders\dgp",
+    'DGP': "DGP",
     'UDI': "UDI/UDI",
     'Floor': r"D:\01_Tu delft Msc Building Tech\2nd year\core\Week 2\VS\renders\floor",
 }
