@@ -145,7 +145,7 @@ image_mode = st.radio("Select image type to view:", ['DGP', 'UDI', 'Floor'], hor
 image_dirs = {
     'DGP': "DGP",
     'UDI': "UDI/UDI",
-    'floor': "floor",
+    'Floor': "floor",
 }
 img_column_map = {
     'DGP': 'img:DGP',
