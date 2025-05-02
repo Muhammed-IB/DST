@@ -108,12 +108,24 @@ df_pareto['AHP_Score'] = df_pareto['Value_Function']
 st.sidebar.header("🏢 Filter by Number of Levels")
 selected_levels = []
 for level in [2, 3, 4]:
-    if st.sidebar.checkbox(f"{level} Levels", value=True):
+    if st.sidebar.checkbox(f"{level} Levels", value=True, key=f"level_{level}"):
         selected_levels.append(level)
+
+# Ensure at least one level is selected
+if not selected_levels:
+    st.sidebar.warning("⚠️ Please select at least one level. Defaulting to all.")
+    selected_levels = [2, 3, 4]
 
 # --- Fronts selection ---
 st.sidebar.header("📂 Select Fronts")
 selected_fronts = [i for i in range(1, 7) if st.sidebar.checkbox(f"Front {i}", value=(i == 1))]
+
+# Failsafe: if nothing is selected, default to all fronts
+if not selected_fronts:
+    st.sidebar.warning("⚠️ Please select at least one front. Defaulting to all fronts.")
+    selected_fronts = list(range(1, 7))
+
+# Apply filtering
 df_ranked = df_pareto[df_pareto['Front'].isin(selected_fronts)]
 if 'in:levels' in df_ranked.columns:
     df_ranked = df_ranked[df_ranked['in:levels'].isin(selected_levels)].sort_values("AHP_Score").reset_index(drop=True)
