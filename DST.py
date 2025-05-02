@@ -210,27 +210,27 @@ st.sidebar.plotly_chart(fig_sens, use_container_width=True)
 # st.pyplot(plt.gcf())
 
 # --- Parallel Coordinates Plot ---
-st.subheader("📈 Parallel Coordinates Plot")
-pcp_cols = [
-    'in:levels', 'in:shift', 'in:levelfraction', 'in:floorthickness', 'in:fractionextension',
-    'in:wallrvalue', 'in:roofrvalue', 'in:floortype',
-    'in:hvacheating_type', 'in:hvachotwater', 'in:hvacecon', 'in:hvacheatrecovery', 'in:buildinglpd', 'in:hvaccold',
-    'out:EUI', 'out:CO2', 'out:Cost', 'out:Area', 'out:dgp_parsed'
-]
-present_cols = [col for col in pcp_cols if col in df_ranked.columns]
+# st.subheader("📈 Parallel Coordinates Plot")
+# pcp_cols = [
+#     'in:levels', 'in:shift', 'in:levelfraction', 'in:floorthickness', 'in:fractionextension',
+#     'in:wallrvalue', 'in:roofrvalue', 'in:floortype',
+#     'in:hvacheating_type', 'in:hvachotwater', 'in:hvacecon', 'in:hvacheatrecovery', 'in:buildinglpd', 'in:hvaccold',
+#     'out:EUI', 'out:CO2', 'out:Cost', 'out:Area', 'out:dgp_parsed'
+# ]
+# present_cols = [col for col in pcp_cols if col in df_ranked.columns]
 
-highlighted = df_ranked.nsmallest(1, 'AHP_Score').copy().copy()
-others = df_ranked[~df_ranked.index.isin(highlighted.index)].copy().copy()
-highlighted['color_val'] = 1
-others['color_val'] = 0
-combined = pd.concat([highlighted, others])
+# highlighted = df_ranked.nsmallest(1, 'AHP_Score').copy().copy()
+# others = df_ranked[~df_ranked.index.isin(highlighted.index)].copy().copy()
+# highlighted['color_val'] = 1
+# others['color_val'] = 0
+# combined = pd.concat([highlighted, others])
 
-fig = px.parallel_coordinates(
-    combined,
-    dimensions=present_cols,
-    color='color_val',
-    color_continuous_scale=[[0, 'black'], [1, 'red']],
-    range_color=[0, 1]
-)
-fig.update_layout(width=2000, height=600)
-st.plotly_chart(fig)
+# fig = px.parallel_coordinates(
+#     combined,
+#     dimensions=present_cols,
+#     color='color_val',
+#     color_continuous_scale=[[0, 'black'], [1, 'red']],
+#     range_color=[0, 1]
+# )
+# fig.update_layout(width=2000, height=600)
+# st.plotly_chart(fig)
